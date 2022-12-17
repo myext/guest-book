@@ -1,6 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\Api\ReviewController;
+use App\Models\Permission;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['namespace' => 'Api'], function () {
+    Route::group(['namespace' => 'Auth'], function () {
+        Route::post('login', [AuthController::class, 'login']);
+        Route::post('register', [AuthController::class, 'register']);
+    });
+});
+
+Route::group(['middleware' => 'auth:sanctum'], function() {
+    Route::get('reviews', [ReviewController::class, 'index'])
+        ->middleware('permission:' . Permission::PERMISSIONS['reviews:read']);;
+    Route::post('review', [ReviewController::class, 'post'])
+        ->middleware('permission:' . Permission::PERMISSIONS['review:save']);
+    Route::post('comment', [CommentController::class, 'post'])
+        ->middleware('permission:' . Permission::PERMISSIONS['review-comment:save']);
 });

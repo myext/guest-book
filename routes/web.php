@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/expects-json', function () {
+    return view('expects-json');
+})->name('expects-json');
