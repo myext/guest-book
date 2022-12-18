@@ -46,4 +46,4 @@
      'content' => 'required|min:5',
 ]
 
-- получить отзывы api/reviews?page=3 и необязательный параметр limit
+- получить отзывы (передать Bearer token) api/reviews?page=3 и необязательный параметр limit
