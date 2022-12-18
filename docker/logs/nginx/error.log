@@ -1,4 +1,1 @@
-2022/12/15 08:29:05 [emerg] 12#12: host not found in upstream "php-fpm:9000" in /etc/nginx/conf.d/upstream.conf:1
-2022/12/15 08:53:46 [emerg] 12#12: host not found in upstream "php-fpm:9000" in /etc/nginx/conf.d/upstream.conf:1
-2022/12/15 08:56:45 [emerg] 12#12: host not found in upstream "php-fpm:9000" in /etc/nginx/conf.d/upstream.conf:1
-2022/12/15 09:03:39 [emerg] 12#12: host not found in upstream "php-fpm:9000" in /etc/nginx/conf.d/upstream.conf:1
+
