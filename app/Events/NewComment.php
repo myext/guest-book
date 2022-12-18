@@ -34,7 +34,7 @@ class NewComment implements ShouldBroadcast
      */
     public function broadcastOn(): Channel|array
     {
-        return new PrivateChannel("comments.{$this->getComment()->user->id}");
+        return new PrivateChannel("comments.{$this->getComment()->review->user->id}");
     }
 
     /**
